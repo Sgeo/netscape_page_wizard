@@ -1,0 +1,1 @@
+https://web.archive.org/cdx/search?url=http://home.netscape.com/assist/net_sites/starter/wizard/&matchType=prefix&collapse=urlkey&filter=statuscode%3A200&fl=original

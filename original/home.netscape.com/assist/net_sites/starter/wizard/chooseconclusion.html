@@ -1,0 +1,45 @@
+<HTML>
+<!----------------------------------->
+<!-- Custom Page 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+<HEAD>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#FF0000" TEXT="#000000">
+
+<FORM NAME="conclusionform" onSubmit="return false;"><B>C<FONT SIZE=-1>HOICES:</FONT> C<FONT SIZE=-1>ONCLUSION</FONT></B><BR>
+
+<TABLE><TR><TD>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<TEXTAREA ROWS=2 COLS=40 WRAP="physical" NAME="conclusion">');
+var thestring = parent.GetCookie('conclusion');
+if (thestring == "blank") {
+        document.write('Type your conclusion here.');
+} else {
+        var temp='';
+        var tempchar;
+        for (var i = 0 ; i < thestring.length ; i++) {
+                tempchar = thestring.substring(i,i+1);
+                check = thestring.substring(i,i+4);
+                if (check == '<BR>') {
+                        temp = temp + unescape('%0A');
+                        i = i+3;
+                } else {
+                        temp = temp + tempchar;
+                }
+        }
+        document.write(temp);
+}
+//-->
+</SCRIPT>
+</TEXTAREA>
+</TD><TD VALIGN=TOP>
+<INPUT TYPE="button" VALUE="Apply" onClick="if (document.conclusionform.conclusion.value.length > 300) {alert(unescape('%0A') + 'The conclusion you have typed is too long.' +  unescape('%0A') + 'Please keep your conclusion less than 300' +  unescape('%0A') + 'characters - you can always lengthen it once' +  unescape('%0A') + 'you have built your page.');} else {var temp = ''; var tempchar; for (var i = 0 ; i < document.conclusionform.conclusion.value.length ; i++) {tempchar = document.conclusionform.conclusion.value.substring(i, i+1); if (escape(tempchar) == '%0A') {temp = temp + '<BR>';} else {if (tempchar != ';' && tempchar != '%') {temp = temp + tempchar;}}} if (document.conclusionform.conclusion.value.length > 2) { parent.SetCookie('conclusion', temp);} else { parent.SetCookie('conclusion', 'blank');} parent.examplewin.location='/assist/net_sites/starter/wizard/example.html';}"></FORM>
+</TD></TR></TABLE>
+</BODY>
+</HTML>
+

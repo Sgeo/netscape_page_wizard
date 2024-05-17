@@ -1,0 +1,50 @@
+<HTML>
+<!----------------------------------->
+<!-- Custom Page 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+<HEAD>
+<SCRIPT LANGUAGE='JavaScript'>
+<!--
+function doMap (bgcolor, textcolor, lcolor, vlcolor) 
+{
+parent.SetSubCookie('choices', 3, bgcolor); 
+parent.SetSubCookie('choices', 5, '0');
+parent.SetSubCookie('choices', 6, textcolor); 
+parent.SetSubCookie('choices', 7, lcolor); 
+parent.SetSubCookie('choices', 8, vlcolor); 
+parent.examplewin.location='/assist/net_sites/starter/wizard/example.html';
+}
+//-->
+</SCRIPT>
+
+<BODY BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#000000" ALINK="#000000" TEXT="#000000">
+
+<B>C<FONT SIZE=-1>HOICES:</FONT> C<FONT SIZE=-1>OLOR</FONT> C<FONT SIZE=-1>OMBINATION</FONT></B><BR>
+
+<MAP NAME='palette'>
+<AREA SHAPE=RECT COORDS='0,0,39,39' HREF=javascript:doMap('FFFFFF','333333','006699','999900')>
+<AREA SHAPE=RECT COORDS='40,0,79,39' HREF=javascript:doMap('CCCCCC','000000','0000CC','660066')>
+<AREA SHAPE=RECT COORDS='80,0,119,39' HREF=javascript:doMap('FFFF00','FF6600','FF0033','336633')>
+<AREA SHAPE=RECT COORDS='120,0,159,39' HREF=javascript:doMap('CCCC66','330000','CC0000','003300')>
+<AREA SHAPE=RECT COORDS='160,0,199,39' HREF=javascript:doMap('FFFF99','330000','CC0000','333333')>
+<AREA SHAPE=RECT COORDS='200,0,239,39' HREF=javascript:doMap('99CCCC','000066','0000CC','003366')>
+<AREA SHAPE=RECT COORDS='240,0,279,39' HREF=javascript:doMap('CC99FF','000000','FF0033','660066')>
+<AREA SHAPE=RECT COORDS='280,0,319,39' HREF=javascript:doMap('CCFF99','666600','006699','003300')>
+<AREA SHAPE=RECT COORDS='320,0,359,39' HREF=javascript:doMap('FFCC00','330000','CC0000','660066')>
+<AREA SHAPE=RECT COORDS='360,0,399,39' HREF=javascript:doMap('00FF33','0000CC','FF0099','660066')>
+<AREA SHAPE=RECT COORDS='400,0,439,39' HREF=javascript:doMap('006699','CCFFCC','FFFF00','00FFFF')>
+<AREA SHAPE=RECT COORDS='440,0,479,39' HREF=javascript:doMap('330000','FF6666','FFCC00','CCFF99')>
+<AREA SHAPE=RECT COORDS='480,0,519,39' HREF=javascript:doMap('003300','CCCC66','FFFFFF','FFFF00')>
+<AREA SHAPE=RECT COORDS='520,0,559,39' HREF=javascript:doMap('333333','CCCCCC','FF6666','CCCC66')>
+<AREA SHAPE=RECT COORDS='560,0,599,39' HREF=javascript:doMap('666600','FFFFFF','FFFF00','99CCFF')>
+<AREA SHAPE=RECT COORDS='600,0,639,39' HREF=javascript:doMap('000000','99CCFF','FFFF00','CCCC66')>
+<AREA SHAPE=RECT COORDS='640,0,679,39' HREF=javascript:doMap('333333','FFFFFF','99CCFF','CC99FF')>
+<AREA SHAPE=RECT COORDS='680,0,719,39' HREF=javascript:doMap('CC0000','FFFFFF','FFFF00','00FFFF')>
+</MAP>
+
+<IMG SRC=/assist/net_sites/starter/wizard/images/default_colors/clrspalette.gif USEMAP=#palette BORDER=0 WIDTH=720 HEIGHT=40></BODY>
+</HTML>
+
