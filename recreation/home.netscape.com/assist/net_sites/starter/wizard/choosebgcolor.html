@@ -1,0 +1,76 @@
+<HTML>
+<!----------------------------------->
+<!-- Custom Page 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+<SCRIPT LANGUAGE='JavaScript'>
+<!--
+var localtextcolor = parent.GetSubCookie('choices', 6);
+var locallinkcolor = parent.GetSubCookie('choices', 7);
+var localvlinkcolor = parent.GetSubCookie('choices', 8);
+function doMap (thecolor) {
+	if (thecolor == localtextcolor || thecolor == locallinkcolor || thecolor == localvlinkcolor) {
+		var warning = 'You have chosen the same color you chose for' + unescape("%0A") + 'some of your text.  Unless you go back and' + unescape("%0A") + 'choose another background color or different' + unescape("%0A") + 'text colors, you will not be able to see' + unescape("%0A") + 'some of your text against the background.' + unescape("%0A") + 'Are you sure you want this color?';
+		if (confirm(warning) ) {
+			parent.SetSubCookie('choices', 5, '0');
+			parent.SetSubCookie('choices', 3, thecolor);
+			parent.examplewin.location='/assist/net_sites/starter/wizard/example.html';
+		}
+	} else {
+		parent.SetSubCookie('choices', 5, '0');
+		parent.SetSubCookie('choices', 3, thecolor);
+		parent.examplewin.location='/assist/net_sites/starter/wizard/example.html';
+	}
+}
+//-->
+</SCRIPT>
+
+<BODY BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#000000" ALINK="#000000" TEXT="#000000">
+
+<MAP NAME='palette'>
+<AREA SHAPE=RECT COORDS='0,0,19,19' HREF=javascript:doMap('000000')>
+<AREA SHAPE=RECT COORDS='20,0,39,19' HREF=javascript:doMap('333333')>
+<AREA SHAPE=RECT COORDS='40,0,59,19' HREF=javascript:doMap('CCCCCC')>
+<AREA SHAPE=RECT COORDS='60,0,79,19' HREF=javascript:doMap('FFFFFF')>
+<AREA SHAPE=RECT COORDS='80,0,99,19' HREF=javascript:doMap('FFFF99')>
+<AREA SHAPE=RECT COORDS='100,0,119,19' HREF=javascript:doMap('FFFF00')>
+<AREA SHAPE=RECT COORDS='120,0,139,19' HREF=javascript:doMap('FFCC00')>
+<AREA SHAPE=RECT COORDS='140,0,159,19' HREF=javascript:doMap('FF6666')>
+<AREA SHAPE=RECT COORDS='160,0,179,19' HREF=javascript:doMap('FF6600')>
+<AREA SHAPE=RECT COORDS='180,0,199,19' HREF=javascript:doMap('FF0033')>
+<AREA SHAPE=RECT COORDS='200,0,219,19' HREF=javascript:doMap('CC0000')>
+<AREA SHAPE=RECT COORDS='220,0,239,19' HREF=javascript:doMap('FF0099')>
+<AREA SHAPE=RECT COORDS='240,0,259,19' HREF=javascript:doMap('CC99FF')>
+<AREA SHAPE=RECT COORDS='260,0,279,19' HREF=javascript:doMap('CC00CC')>
+<AREA SHAPE=RECT COORDS='280,0,299,19' HREF=javascript:doMap('990066')>
+<AREA SHAPE=RECT COORDS='300,0,319,19' HREF=javascript:doMap('660066')>
+<AREA SHAPE=RECT COORDS='320,0,339,19' HREF=javascript:doMap('330000')>
+<AREA SHAPE=RECT COORDS='340,0,359,19' HREF=javascript:doMap('996600')>
+<AREA SHAPE=RECT COORDS='360,0,379,19' HREF=javascript:doMap('CCCC99')>
+<AREA SHAPE=RECT COORDS='380,0,399,19' HREF=javascript:doMap('CCCC66')>
+<AREA SHAPE=RECT COORDS='400,0,419,19' HREF=javascript:doMap('999900')>
+<AREA SHAPE=RECT COORDS='420,0,439,19' HREF=javascript:doMap('666600')>
+<AREA SHAPE=RECT COORDS='440,0,459,19' HREF=javascript:doMap('003300')>
+<AREA SHAPE=RECT COORDS='460,0,479,19' HREF=javascript:doMap('003366')>
+<AREA SHAPE=RECT COORDS='480,0,499,19' HREF=javascript:doMap('000066')>
+<AREA SHAPE=RECT COORDS='500,0,519,19' HREF=javascript:doMap('0000CC')>
+<AREA SHAPE=RECT COORDS='520,0,539,19' HREF=javascript:doMap('006699')>
+<AREA SHAPE=RECT COORDS='540,0,559,19' HREF=javascript:doMap('0066CC')>
+<AREA SHAPE=RECT COORDS='560,0,579,19' HREF=javascript:doMap('99CCFF')>
+<AREA SHAPE=RECT COORDS='580,0,599,19' HREF=javascript:doMap('00FFFF')>
+<AREA SHAPE=RECT COORDS='600,0,619,19' HREF=javascript:doMap('339999')>
+<AREA SHAPE=RECT COORDS='620,0,639,19' HREF=javascript:doMap('99CCCC')>
+<AREA SHAPE=RECT COORDS='640,0,659,19' HREF=javascript:doMap('00FF33')>
+<AREA SHAPE=RECT COORDS='660,0,679,19' HREF=javascript:doMap('CCFFCC')>
+<AREA SHAPE=RECT COORDS='680,0,699,19' HREF=javascript:doMap('CCFF99')>
+<AREA SHAPE=RECT COORDS='700,0,719,19' HREF=javascript:doMap('336633')>
+</MAP>
+
+<B>C<FONT SIZE=-1>HOICES:</FONT> B<FONT SIZE=-1>ACKGROUND</FONT> C<FONT SIZE=-1>OLOR</FONT></B><BR>
+
+<IMG SRC=/assist/net_sites/starter/wizard/images/36_colored_chips/chippal.gif USEMAP=#palette BORDER=0 WIDTH=720 HEIGHT=20 VSPACE=10><P>
+</BODY>
+</HTML>
+

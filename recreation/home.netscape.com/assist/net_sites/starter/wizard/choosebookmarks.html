@@ -1,0 +1,27 @@
+<!----------------------------------->
+<!-- Custom Page 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+localplinks = parent.GetCookie('plinks');
+
+// WRITE DOCUMENT
+
+document.writeln('<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#FF0000" TEXT="#000000">');
+
+document.writeln('<FORM NAME="bookmarkform" onSubmit="return newlink();"><TABLE WIDTH=100% CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN=LEFT><B>C<FONT SIZE=-1>HOICES:</FONT> H<FONT SIZE=-1>OT</FONT> L<FONT SIZE=-1>INKS</FONT></B></TD><TD ALIGN=RIGHT><A HREF="/assist/net_sites/starter/wizard/choosebookmarksdelete.html">Delete Hot Links</A></TD></TR><TR><TD COLSPAN=2>');
+
+// WRITE PALETTE
+
+document.write('Name: <INPUT TYPE="text" NAME="title" VALUE="Type the name of your hot link here." SIZE="40" MAXLENGTH="100">&nbsp;<BR>');
+
+document.write('URL: <INPUT TYPE="text" NAME="url" VALUE="http://your.url/goes/here.html" SIZE="40" MAXLENGTH="100"> <INPUT TYPE="submit" VALUE="Apply"></TD></TR></TABLE></FORM>');
+
+document.writeln('<SCRIPT LANGUAGE=\'JavaScript\'> function newlink() {var psize = parseInt(parent.GetCookie(\'psizecookie\')); if (psize == 4) {alert(\'You can only enter up to 4 bookmarks.  If\' + unescape(\'%0A\') + \'you would like your page to have more\' + unescape(\'%0A\') + \'bookmarks, you can add them once you have\' + unescape(\'%0A\') + \'built your page.\');} else {psize = psize+1; if (psize == 1) { localplinks = \'\';} var temp = escape(document.bookmarkform.title.value); var temp2 = escape(document.bookmarkform.url.value); parent.SetCookie(\'plinks\', localplinks + temp + \'::\' + temp2 + \'::\'); parent.examplewin.location=\'/assist/net_sites/starter/wizard/example.html\'; parent.customwin.location=\'/assist/net_sites/starter/wizard/choosebookmarks.html\'; parent.SetCookie(\'psizecookie\', psize + \';\');} return false;} </SCRIPT>');
+
+//-->
+</SCRIPT>
+

@@ -1,0 +1,31 @@
+<HTML>
+<!----------------------------------->
+<!-- Custom Page 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+<HEAD>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#FF0000" TEXT="#000000">
+
+<FORM NAME="creditform" onSubmit="return false;"><B>C<FONT SIZE=-1>HOICES:</FONT> E<FONT SIZE=-1>MAIL</FONT> L<FONT SIZE=-1>INK</FONT></B><BR>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<INPUT TYPE="text" NAME="credit" VALUE="');
+var thestring = parent.GetSubCookie('choices', 2);
+if (thestring == "blank") {
+        document.write('yourname@yourhost.yourdomain.com');
+} else {
+        document.write(thestring);
+}
+document.write('" SIZE="40" MAXLENGTH="100">');
+//-->
+</SCRIPT>
+
+ <INPUT TYPE="button" VALUE="Apply" onClick="if (document.creditform.credit.value.length > 2) { parent.SetSubCookie('choices', 2, document.creditform.credit.value);} else { parent.SetSubCookie('choices', 2, 'blank');} parent.examplewin.location='/assist/net_sites/starter/wizard/example.html';"></FORM>
+</BODY>
+</HTML>
+

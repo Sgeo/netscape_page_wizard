@@ -1,0 +1,29 @@
+<!----------------------------------->
+<!-- Custom Page 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+// WRITE DOCUMENT
+
+document.writeln('<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#FF0000" TEXT="#000000">');
+
+document.writeln('<FORM NAME="bookmarkform" onSubmit="return false;">');
+document.write('<TABLE WIDTH=100% CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN=LEFT><B>C<FONT SIZE=-1>HOICES:</FONT> D<FONT SIZE=-1>ELETE</FONT> H<FONT SIZE=-1>OT</FONT> L<FONT SIZE=-1>INKS</FONT></B></TD><TD ALIGN=RIGHT><A HREF=/assist/net_sites/starter/wizard/choosebookmarks.html>Add Hot Links</A></TD></TR></TABLE>');
+
+// WRITE PALETTE
+
+var count = 0;
+
+while (count < parseInt(parent.GetCookie('psizecookie'))) {
+document.write('<INPUT TYPE="checkbox" onClick="parent.deleteBookmark(\'plinks\', ', count, '); var psize = parseInt(parent.GetCookie(\'psizecookie\')); psize = psize-1; parent.SetCookie(\'psizecookie\', psize); parent.customwin.location=\'/assist/net_sites/starter/wizard/choosebookmarksdelete.html\'; if (psize == 0) { parent.SetCookie(\'plinks\', \'blank\');} parent.examplewin.location=\'/assist/net_sites/starter/wizard/example.html\';" CHECKED> ', parent.GetSubCookie('plinks', count*2 + 1), '<BR>');
+count++;
+}
+
+document.write('<P><B>Uncheck choices to delete the link.</B></FORM>');
+
+//-->
+</SCRIPT>
+

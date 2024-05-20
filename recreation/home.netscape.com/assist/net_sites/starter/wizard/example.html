@@ -1,0 +1,92 @@
+<HTML>
+<!----------------------------------->
+<!-- Page Wizard 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- and Alan Spar                 -->
+<!-- 2/13/96                       -->
+<!----------------------------------->
+
+
+<HEAD>
+<TITLE>Example Page</TITLE>
+<SCRIPT LANUAGE="JavaScript">
+<!--
+function MakeArray(n) {
+   this.length = n;
+   return this
+}
+
+// define the local array
+local = new MakeArray(11);
+
+// get the cookies we need
+var introcookie = parent.GetCookie('intro');
+
+var conclusioncookie = parent.GetCookie('conclusion');
+
+var plinkscookie;
+var personalsize = parent.GetCookie('psizecookie');
+if (personalsize != 0) {
+	plinkscookie = new MakeArray(personalsize*2);
+	plinkscookie = parent.CookietoArray('plinks', personalsize*2);
+} else {
+	plinkscookie = '';
+}
+
+// set the values of local
+local = parent.CookietoArray('choices', 11);
+
+function drawRule() {
+  document.write('<CENTER><IMG SRC=images/rules/s', local[10], '></CENTER><P>');
+}
+
+document.write('<HEAD><TITLE>', local[1], '</TITLE></HEAD>');
+
+if (local[5] == '0') {
+	document.write('<BODY BGCOLOR="#', local[3], '" LINK="#', local[7], '" VLINK="#', local[8], '" ALINK="#', local[8], '" TEXT="#', local[6], '">');
+} else {
+	document.write('<BODY BACKGROUND="', local[4], '" LINK="#', local[7], '" VLINK="#', local[8], '" ALINK="#', local[8], '" TEXT="#', local[6], '">');
+}
+
+document.writeln('<FONT COLOR="#000000"><B>P<FONT SIZE=-1>REVIEW</FONT></B></FONT><P>');
+document.writeln('<CENTER>');
+
+// WRITE IMAGE
+
+if (local[11] != 'blank') {
+	document.write('<IMG SRC=file:', local[11], '><BR>');
+}
+
+//WRITE TITLE
+document.write('<P><H1>', local[1], '</H1><P></CENTER>');
+drawRule();
+
+if (introcookie != 'blank') {
+	document.write(introcookie, '<P>');
+}
+
+drawRule();
+
+if (personalsize != 0) {
+	document.write('<H3><CENTER>Hot Links</CENTER></H3><P>');
+        document.write('<DL><DD>');
+	for (var i = 0 ; i < personalsize ; i++) {
+		document.write('<IMG SRC=images/bullets/', local[9], '> <FONT COLOR="#', local[7], '">', plinkscookie[i*2+1], '</FONT></A><BR>');
+	}
+	document.write('</DD></DL><P>');
+	drawRule();
+}
+
+if (conclusioncookie != 'blank') {
+	document.write(conclusioncookie, '<P><CENTER>');
+}
+
+if (local[2] != 'blank') {
+	document.write('If you have comments or suggestions, email me at <I><FONT COLOR="#', local[7], '">', local[2], '</FONT></I>');
+}
+
+document.write('</CENTER></BODY>');
+//-->
+</SCRIPT>
+</HTML>
+

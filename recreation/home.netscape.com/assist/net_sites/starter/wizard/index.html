@@ -1,0 +1,284 @@
+<HTML>
+
+<!----------------------------------->
+<!-- Page Wizard 'Lite'            -->
+<!-- Written by Jonathan Feinstein -->
+<!-- 2/26/96                       -->
+<!----------------------------------->
+
+<HEAD>
+<TITLE>Netscape Page Wizard</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+function MakeArray(n) {
+   this.length = n;
+   return this
+}
+
+var tempcookie = GetCookie("psizecookie");
+if (tempcookie == null) {
+	document.cookie = 'psizecookie = 0; domain=.netscape.com path=/;';
+} else {
+	psizecookie = tempcookie;
+}
+
+function getCookieVal (offset) {
+  if (offset == -1) return null;
+  var endstr = document.cookie.indexOf (";", offset);
+  if (endstr == -1)
+    endstr = document.cookie.length;
+  return unescape(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie (name) {
+  var arg = name + "=";
+  var i = 0;
+  if (document.cookie != "") var start = document.cookie.indexOf (arg, 0);
+  else start = -1;
+  if (start != -1) 
+	{
+	start = start + arg.length;
+  	return getCookieVal (start);
+	}
+  else 
+	{
+	return null;
+	}
+}
+
+function SetCookie (name, value) {
+  var argv = SetCookie.arguments;
+  var argc = SetCookie.arguments.length;
+  document.cookie = name + ' = ' + value + '; domain=.netscape.com path=/;';
+}
+
+function GetSubCookie (name, value)  {
+  var start = 0;
+  var end = 0;
+  var count = 0;
+  var curchar = 0;
+  var thecookie = GetCookie(name);
+  value = value - 1;
+  while (count < value)
+        {
+        if ( thecookie.substring(curchar, curchar+2) == "::" || thecookie.substring(curchar, curchar+2) == "::" )
+                {
+                count = count + 1;
+		curchar = curchar + 1;
+                }
+        curchar = curchar + 1;
+        }
+  start = curchar;
+  while ( thecookie.substring(curchar, curchar+2) != '::' && thecookie.substring(curchar, curchar+2) != '::' )
+        {
+        curchar++;
+        }
+  end = curchar;
+  return thecookie.substring(start, end);
+}
+
+function CookietoArray(name, size)
+{
+var newarray = new MakeArray(size);
+var start = 0;
+var end = 0;
+var count = 0;
+var thecookie = GetCookie(name);
+var curchar = 0;
+while (count < size)
+	{
+	if ( thecookie.substring(curchar, curchar+2) == "::" )
+		{
+		newarray[count+1] = thecookie.substring(start, curchar);
+		count++;
+		start = curchar+2;
+		curchar = curchar+2;
+                }
+	curchar++;
+	}
+return newarray;
+}
+
+function SetSubCookie (name, number, value) {
+var temp = '';
+var tempchar;
+for (var z = 0 ; z < value.length ; z++) {
+	tempchar = value.substring(z, z+1);
+	if (tempchar != ';' && tempchar != '%') {
+		temp = temp + tempchar;
+	}
+}
+if (temp == '') temp = ' ';
+value = temp;
+  var start = 0;
+  var end = 0;
+  var count = 0;
+  var curchar = 0;
+  var thecookie = GetCookie(name);
+  var newcookie;
+  number = number - 1;
+  while (count < number)
+	{
+	if ( thecookie.substring(curchar, curchar+2) == "::" || thecookie.substring(curchar, curchar+2) == "::" )
+		{
+		count = count + 1;
+		curchar = curchar + 1;
+		}
+	curchar = curchar + 1;
+	}
+  start = curchar;
+  while ( thecookie.substring(curchar, curchar+2) != '::' && thecookie.substring(curchar, curchar+2) != '::' )
+	{
+	curchar++;
+	}
+  end = curchar;
+  newcookie = thecookie.substring(0, start) + value + thecookie.substring(end, thecookie.length);
+  document.cookie = name + ' = ' + newcookie + '; domain=.netscape.com path=/;';
+}
+
+function deleteBookmark (name, number) {
+  var start = 0;
+  var end = 0;
+  var count = 0;
+  var curchar = 0;
+  var thecookie = GetCookie(name);
+  var newcookie;
+  while (count < number*2)
+        {
+        if ( thecookie.substring(curchar, curchar+2) == "::" )
+                {
+                count = count + 1;
+                curchar = curchar + 1;
+                }
+        curchar = curchar + 1;
+        }
+  start = curchar;
+  while ( thecookie.substring(curchar, curchar+2) != '::' )
+        {
+        curchar++;
+        }
+  curchar = curchar+2;
+  while ( thecookie.substring(curchar, curchar+2) != '::' )
+        {
+        curchar++;
+        }
+  end = curchar+2;
+  newcookie = thecookie.substring(0, start) + thecookie.substring(end, thecookie.length);
+  document.cookie = name + ' = ' + newcookie + '; domain=.netscape.com path=/;';
+}
+
+function buildIt () {
+	document.cookie = 'choices = ' + GetCookie('choices') + '; domain=.netscape.com path=/;';
+	document.cookie = 'intro = ' + GetCookie('intro') + '; domain=.netscape.com path=/;';
+	document.cookie = 'conclusion = ' + GetCookie('conclusion') + '; domain=.netscape.com path=/;';
+	document.cookie = 'psizecookie = ' + GetCookie('psizecookie') + '; domain=.netscape.com path=/;';
+	document.cookie = 'plinks = ' + GetCookie('plinks') + '; domain=.netscape.com path=/;';
+	parent.location = 'http://cgi.netscape.com/cgi-bin/yourpage.html';
+}
+
+// *** NEW DOCUMENT.COOKIE DECLARATIONS ***
+
+var tempcookie = GetCookie("choices");
+if (tempcookie == null) {
+	document.cookie = 'choices = Your Page::blank::FFFFFF::blank::0::000000::0000FF::FF0000::bullet1.gif::rule01.gif::blank::; domain=.netscape.com path=/;';
+}
+
+var tempcookie = GetCookie("plinks");
+if (tempcookie == null) {
+	document.cookie = 'plinks = blank; domain=.netscape.com path=/;';
+}
+
+var tempcookie = GetCookie("intro");
+if (tempcookie == null) {
+	document.cookie = 'intro = blank; domain=.netscape.com path=/;';
+}
+
+var tempcookie = GetCookie("conclusion");
+if (tempcookie == null) {
+	document.cookie = 'conclusion = blank; domain=.netscape.com path=/;';
+}
+//-->
+</SCRIPT>
+</HEAD>
+<FRAMESET ROWS="*,100">
+	<FRAMESET COLS="40%,60%">
+	<FRAME
+		NAME="mainpage"
+		SRC="/assist/net_sites/starter/wizard/blank.html"
+		MARGINHEIGHT=5
+		MARGINWIDTH=10
+		SCROLLING = "auto">
+	<FRAME
+		NAME="examplewin"
+		SRC="/assist/net_sites/starter/wizard/instructions.html"
+		MARGINHEIGHT=5
+		MARGINWIDTH=10
+		SCROLLING = "auto">
+	</FRAMESET>
+	<FRAME
+		NAME="customwin"
+		SRC="/assist/net_sites/starter/wizard/blank.html"
+		MARGINHEIGHT=5
+		MARGINWIDTH=10
+		SCROLLING = "auto">
+</FRAMESET>
+
+<NOFRAME>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#FF0000" ALINK="#FF0000">
+
+<CENTER>
+<IMG SRC="http://home.netscape.com/images/home_ban.jpg" WIDTH=468 HEIGHT=32 BORDER=0 ALT="NETSCAPE PAGE WIZARD"><P>
+
+Sorry. You need a browser that supports frames and JavaScript to run the Netscape Page Wizard.  If you haven't already, please <A HREF="/comprod/mirror/index.html">download</A> Netscape Navigator Gold 2.0.<P>
+
+<CENTER>
+<HR SIZE=4>
+<P>
+<A NAME=navbar></A>
+
+
+<!-- footer -->
+<TABLE WIDTH=600 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD WIDTH=600 HEIGHT=8><HR SIZE=1 NOSHADE></TD></TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="sans-serif, Arial, Helvetica" SIZE=-2><A HREF="http://home.netscape.com/misc/nav_redir/help.html" TARGET="_top">Help</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A 
+HREF="http://home.netscape.com/misc/nav_redir/site_map.html" TARGET="_top">Site&nbsp;Map</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A 
+HREF="http://home.netscape.com/misc/nav_redir/howtoget.html" TARGET="_top">How&nbsp;to&nbsp;Get&nbsp;Netscape&nbsp;Products</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A HREF="http://home.netscape.com/misc/nav_redir/ad.html" TARGET="_top">Advertise&nbsp;With&nbsp;Us</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/addsite.html" TARGET="_top">Add Site</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A HREF="http://home.netscape.com/misc/nav_redir/custom_browser.html" TARGET="_top">Custom Browser Program</A></FONT></TD></TR>
+<TR>
+<TD WIDTH=600 HEIGHT=8 COLSPAN=0></TD>
+</TR>
+
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP>
+<!-- Channels -->
+<FONT FACE="sans-serif, Arial, Helvetica" SIZE=-2><A HREF="http://home.netscape.com/misc/nav_redir/channels/autos.html" TARGET="_top">Autos</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/business.html" TARGET="_top">Business</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/computers_internet.html" TARGET="_top">Computing&nbsp;&amp;&nbsp;Internet</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/entertainment.html" TARGET="_top">Entertainment</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/kids_family.html" TARGET="_top">Family</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/games.html" TARGET="_top">Games</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/health.html" TARGET="_top">Health</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/lifestyles.html" TARGET="_top">Lifestyles</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/local.html" TARGET="_top">Local</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/netscape.html" TARGET="_top">Netscape</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/open_directory.html">Netscape&nbsp;Open&nbsp;Directory</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/news.html" TARGET="_top">News</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/personalize_finance.html" TARGET="_top">Personal&nbsp;Finance</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/real_estate.html" TARGET="_top">Real Estate</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/education.html" TARGET="_top">Research&nbsp;&amp;&nbsp;Learn</A>&nbsp;&nbsp;&nbsp;|&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/shopping.html" TARGET="_top">Shopping</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/smallbiz.html" TARGET="_top">Small Business</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+HREF="http://home.netscape.com/misc/nav_redir/channels/sports.html" TARGET="_top">Sports</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <A HREF="http://home.netscape.com/misc/nav_redir/channels/travel.html" TARGET="_top">Travel</A></FONT></TD></TR> 
+</TABLE>
+
+<TABLE WIDTH=600 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR><TD WIDTH=600 HEIGHT=8 COLSPAN=0></TD></TR>
+<TR>
+<TD WIDTH=600 COLSPAN=5 VALIGN=TOP ALIGN=LEFT>
+<FONT FACE="sans-serif, Arial, Helvetica" SIZE=-2>
+&copy; 1999 Netscape, All Rights Reserved. <A HREF="http://home.netscape.com/legal_notices/index.html">Legal & Privacy Notices</A><BR>This site powered by <A HREF="http://home.netscape.com/comprod/server_central/index.html" TARGET="_top">Netscape SuiteSpot servers</A>.</FONT></TD>
+</TR>
+</TABLE>
+<!-- end footer -->
+
+
+
+
+</CENTER>
+<P>
+<P>
+</BODY>
+</NOFRAME>
+</HTML>
+
