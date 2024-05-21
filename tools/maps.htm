@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Image map recreater</title>
+        <style>
+            .link, .visited { text-decoration: underline; }
+        </style>
     </head>
     <body>
         <MAP id="chippal-map" NAME='palette'>
@@ -55,6 +58,59 @@
                 let height = y1 - y0 + 1;
                 ctx.fillStyle = color;
                 ctx.fillRect(x0, y0, width, height);
+            }
+        </script>
+        <MAP id="clrspalette-map" NAME='palette'>
+            <AREA SHAPE=RECT COORDS='0,0,39,39' HREF=javascript:doMap('FFFFFF','333333','006699','999900')>
+            <AREA SHAPE=RECT COORDS='40,0,79,39' HREF=javascript:doMap('CCCCCC','000000','0000CC','660066')>
+            <AREA SHAPE=RECT COORDS='80,0,119,39' HREF=javascript:doMap('FFFF00','FF6600','FF0033','336633')>
+            <AREA SHAPE=RECT COORDS='120,0,159,39' HREF=javascript:doMap('CCCC66','330000','CC0000','003300')>
+            <AREA SHAPE=RECT COORDS='160,0,199,39' HREF=javascript:doMap('FFFF99','330000','CC0000','333333')>
+            <AREA SHAPE=RECT COORDS='200,0,239,39' HREF=javascript:doMap('99CCCC','000066','0000CC','003366')>
+            <AREA SHAPE=RECT COORDS='240,0,279,39' HREF=javascript:doMap('CC99FF','000000','FF0033','660066')>
+            <AREA SHAPE=RECT COORDS='280,0,319,39' HREF=javascript:doMap('CCFF99','666600','006699','003300')>
+            <AREA SHAPE=RECT COORDS='320,0,359,39' HREF=javascript:doMap('FFCC00','330000','CC0000','660066')>
+            <AREA SHAPE=RECT COORDS='360,0,399,39' HREF=javascript:doMap('00FF33','0000CC','FF0099','660066')>
+            <AREA SHAPE=RECT COORDS='400,0,439,39' HREF=javascript:doMap('006699','CCFFCC','FFFF00','00FFFF')>
+            <AREA SHAPE=RECT COORDS='440,0,479,39' HREF=javascript:doMap('330000','FF6666','FFCC00','CCFF99')>
+            <AREA SHAPE=RECT COORDS='480,0,519,39' HREF=javascript:doMap('003300','CCCC66','FFFFFF','FFFF00')>
+            <AREA SHAPE=RECT COORDS='520,0,559,39' HREF=javascript:doMap('333333','CCCCCC','FF6666','CCCC66')>
+            <AREA SHAPE=RECT COORDS='560,0,599,39' HREF=javascript:doMap('666600','FFFFFF','FFFF00','99CCFF')>
+            <AREA SHAPE=RECT COORDS='600,0,639,39' HREF=javascript:doMap('000000','99CCFF','FFFF00','CCCC66')>
+            <AREA SHAPE=RECT COORDS='640,0,679,39' HREF=javascript:doMap('333333','FFFFFF','99CCFF','CC99FF')>
+            <AREA SHAPE=RECT COORDS='680,0,719,39' HREF=javascript:doMap('CC0000','FFFFFF','FFFF00','00FFFF')>
+        </MAP>
+        <template id="dummy-text">
+            <div style="position:absolute; top:0px; left:0px; font-size:0.725rem;">
+                &nbsp;<span class="text">text</span><br>
+                &nbsp;<span class="link">links</span><br>
+                &nbsp;<span class="visited">visited</span>
+            </div>
+        </template>
+        <div id="clrspalette-container" style="position:relative">
+            <canvas id="clrspalette-canvas" width="720" height="40" style="position:absolute; left:0px; top:0px"></canvas>
+        </div>
+        <script>
+            const clrspalette_map = document.querySelector("#clrspalette-map");
+            const clrspalette_canvas = document.querySelector("#clrspalette-canvas");
+            const template = document.querySelector("#dummy-text");
+            const clrspalette_container = document.querySelector("#clrspalette-container");
+            const clrspalette_ctx = clrspalette_canvas.getContext("2d");
+            let { left: clrspalette_canvas_left, top: clrspalette_canvas_top} = clrspalette_canvas.getBoundingClientRect();
+            for(let area of clrspalette_map.children) {
+                let [x0, y0, x1, y1] = area.coords.split(",");
+                let [[bgcolor], [textcolor], [lcolor], [vlcolor]] = area.href.matchAll(/[0-9A-F]{6}/g);
+                clrspalette_ctx.fillStyle = `#${bgcolor}`;
+                let width = x1 - x0 + 1;
+                let height = y1 - y0 + 1;
+                clrspalette_ctx.fillRect(x0, y0, width, height);
+                let textDemo = template.content.cloneNode(true);
+                let div = textDemo.querySelector("div");
+                div.style.left = `${x0}px`;
+                div.querySelector(".text").style.color = `#${textcolor}`;
+                div.querySelector(".link").style.color = `#${lcolor}`;
+                div.querySelector(".visited").style.color = `#${vlcolor}`;
+                clrspalette_container.append(div);
             }
         </script>
     </body>
