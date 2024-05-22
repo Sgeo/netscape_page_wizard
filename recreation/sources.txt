@@ -1,0 +1,15 @@
+chippal.gif: Programmatically constructed in tools/maps.htm
+bullet1.gif: https://web.archive.org/web/19970728024023id_/http://home.netscape.com/assist/net_sites/starter/samples/bulimages/
+bullet6.gif:  https://web.archive.org/web/19970728024023id_/http://home.netscape.com/assist/net_sites/starter/samples/bulimages/
+clrspalette.gif: Guessed at in tools/maps.htm, using screenshots from books and color information from the client-side image map
+blue_weave.gif: https://www.sheldonbrown.com/images/
+green_stucco.gif: https://www.sheldonbrown.com/images/
+multicolor1_rock.gif: https://www.sheldonbrown.com/images/
+orange_paper.gif: https://www.sheldonbrown.com/images/
+rule16.gif: https://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/jobs/rule16.gif
+pattern06.gif: https://home.olemiss.edu/~cjeffrie/pattern06.gif
+pattern09.gif: https://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/jobs/pattern09.gif
+rule17.gif: https://sites.pitt.edu/~clw/rule17.gif
+rule09.gif: https://freepages.rootsweb.com/~lucky2kershaw/genealogy/rule09.gif
+rule13.gif: https://www.atsu.edu/faculty/chamberlain/website/tritzmed/lects/rule13.gif
+srule12.gif: https://discmaster.textfiles.com/file/13253/park.org.s3.amazonaws.com.7z/park.org.s3.amazonaws.com/Guests/Shells/Shell_Catalogue/srule12.gif
