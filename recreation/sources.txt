@@ -18,5 +18,5 @@ rule11.gif: https://www1.udel.edu/ehs/training/images/rule11.gif
 rule14.gif: https://geocities.restorativland.org/MadisonAvenue/2924/rule14.gif
 rule15.gif: https://nedgallagher.com/images/rule15.gif
 pattern01.gif, pattern03.gif, pattern04.gif, pattern05.gif: Downloaded from https://web.archive.org/web/19970614042448/http://home.netscape.com:80/assist/net_sites/starter/samples/patterns.html, then duplicated horizontally
-rule05.gif: https://web.archive.org/web/19970407133606/http://www.cosmosnet.net/cyprus/economy/rule05.gif
+rule05.gif: https://www.cs.kzoo.edu/gifs/bars/rule05.gif
 rule06.gif: https://www.cs.kzoo.edu/gifs/bars/rule06.gif
