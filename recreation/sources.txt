@@ -13,3 +13,7 @@ rule17.gif: https://sites.pitt.edu/~clw/rule17.gif
 rule09.gif: https://freepages.rootsweb.com/~lucky2kershaw/genealogy/rule09.gif
 rule13.gif: https://www.atsu.edu/faculty/chamberlain/website/tritzmed/lects/rule13.gif
 srule12.gif: https://discmaster.textfiles.com/file/13253/park.org.s3.amazonaws.com.7z/park.org.s3.amazonaws.com/Guests/Shells/Shell_Catalogue/srule12.gif
+rule07.gif: http://www.csb.ki.se/events/courses/rule07.gif
+rule11.gif: https://www1.udel.edu/ehs/training/images/rule11.gif
+rule14.gif: https://geocities.restorativland.org/MadisonAvenue/2924/rule14.gif
+rule15.gif: https://nedgallagher.com/images/rule15.gif
