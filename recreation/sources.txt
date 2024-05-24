@@ -20,3 +20,6 @@ rule15.gif: https://nedgallagher.com/images/rule15.gif
 pattern01.gif, pattern03.gif, pattern04.gif, pattern05.gif: Downloaded from https://web.archive.org/web/19970614042448/http://home.netscape.com:80/assist/net_sites/starter/samples/patterns.html, then duplicated horizontally
 rule05.gif: https://www.cs.kzoo.edu/gifs/bars/rule05.gif
 rule06.gif: https://www.cs.kzoo.edu/gifs/bars/rule06.gif
+srule07.gif: https://geocities.restorativland.org/Vienna/7023/srule07.gif
+srule10.gif: http://www.geocities.com/Athens/7115/srule10.gif on Protoweb
+srule18.gif: https://geocities.restorativland.org/Tokyo/1267/srule18.gif
